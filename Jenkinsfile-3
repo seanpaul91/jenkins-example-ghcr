@@ -9,8 +9,9 @@ pipeline {
   stages {
     stage('verify the container image') {
       steps {
-        bat 'cosign version'
-        bat 'cosign sign --key $COSIGN_PUBLIC_KEY 292708977244.dkr.ecr.eu-west-2.amazonaws.com/demo:latest'
+        script{
+        sh 'cosign version'
+        sh 'cosign sign --key $COSIGN_PUBLIC_KEY 292708977244.dkr.ecr.eu-west-2.amazonaws.com/demo:latest'
       }
     }
   }
