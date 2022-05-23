@@ -4,14 +4,14 @@ pipeline {
     registry = "292708977244.dkr.ecr.eu-west-2.amazonaws.com/demo"
     IMAGE_NAME='cosign_test'
     IMAGE_VERSION='8.5-204'
-    COSIGN_PUBLIC_KEY=credentials('cosign-public-key')
+    COSIGN_PUBLIC_KEY = credentials('cosign-public-key')
   }
   stages {
     stage('verify the container image') {
       steps {
         script{
-        sh 'cosign version'
-        sh 'cosign sign --key $COSIGN_PUBLIC_KEY 292708977244.dkr.ecr.eu-west-2.amazonaws.com/demo:latest'
+        bat 'cosign version'
+        bat "cosign sign --key $COSIGN_PUBLIC_KEY 292708977244.dkr.ecr.eu-west-2.amazonaws.com/demo:latest"
       }
     }
   }
