@@ -37,6 +37,14 @@ pipeline {
         }
       }
     stage('sign the container image'){
+environment {
+    registry = "292708977244.dkr.ecr.eu-west-2.amazonaws.com/demo"
+    IMAGE_NAME='cosign_test'
+    IMAGE_VERSION='8.5-204'
+    COSIGN_PASSWORD=credentials('cosign-password')
+    COSIGN_PRIVATE_KEY=credentials('cosign-private-key')
+
+  }
     steps{ 
       script{
       bat 'cosign version'
