@@ -11,7 +11,7 @@ pipeline {
       steps {
         script{
         bat 'cosign version'
-        bat "cosign sign --verify $COSIGN_PUBLIC_KEY 292708977244.dkr.ecr.eu-west-2.amazonaws.com/demo:latest"
+        bat "cosign verify --key $COSIGN_PUBLIC_KEY 292708977244.dkr.ecr.eu-west-2.amazonaws.com/demo:latest"
       }
     }
   }
