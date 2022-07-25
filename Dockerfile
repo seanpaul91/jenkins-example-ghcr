@@ -1,2 +1,4 @@
-FROM redhat/ubi8-minimal:8.5-204
-LABEL org.opencontainers.image.source https://github.com/darinpope/jenkins-example-ghcr
+FROM --platform linux/arm64 alpine:latest
+## LABEL org.opencontainers.image.source https://github.com/darinpope/jenkins-example-ghcr
+
+brew install sigstore/tap/cosign
